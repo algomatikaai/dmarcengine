@@ -1,0 +1,160 @@
+https://github.com/makerkit/documentation.git 
+
+https://github.com/makerkit/next-supabase-saas-kit-turbo.git 
+
+
+Clone the Next.js Supabase SaaS Kit Turbo Repository
+Clone the Next.js Supabase SaaS Kit Turbo repository to your local machine.
+Cloning the repository
+Clone the Next.js Supabase SaaS Kit Turbo repository to your local machine.
+
+1
+Prerequisites
+
+2
+Have Github configured with SSH
+
+3
+Clone the repository
+
+4
+Install Pnpm
+
+5
+Setup Dependencies
+
+6
+Automatic Setup
+
+7
+Manual Setup
+
+Prerequisites
+To get started with Makerkit, ensure you have the following prerequisites installed and set up:
+
+Node.js 18.x or later (recommended to use Node.js 20.x or later)
+Docker (required for running Supabase locally)
+PNPM
+Payment Gateway account (Stripe or Lemon Squeezy)
+Email Service account (optional for local development)
+Why Docker?
+Docker is required for running Supabase locally. While this is not a strict requirement, it is recommended to use Docker for local development. You don't need to know Docker to use Supabase, you simply need to have it running so that you can spin up the services locally.
+
+Have Github configured with SSH
+To clone the repository using SSH, you need to have your Github account configured with SSH. If you don't have it configured, please refer to the official documentation to set it up.
+
+Alternatively, you can use HTTPS to clone the repository. For example, git clone https://github.com/makerkit/next-supabase-saas-kit-turbo.
+
+Another alternative is to use the Github CLI or Github Desktop to clone the repository.
+
+Cloning the Repository
+Clone the repository using the following command:
+
+bash
+Copy
+git clone git@github.com:makerkit/next-supabase-saas-kit-turbo
+Note: If your SSH key isn't set up, use HTTPS instead:
+
+bash
+Copy
+git clone https://github.com/makerkit/next-supabase-saas-kit-turbo
+Windows Users: place the repository near the root of your drive
+Some Windows users hit errors loading certain modules due to very long paths. To avoid this, try placing the repository near the root of your drive.
+
+Avoid using OneDrive, as it can cause issues with Node.js.
+
+Important: Use HTTPS for All Commands if Not Using SSH
+Install Pnpm
+Install Pnpm globally with the following command:
+
+bash
+Copy
+npm i -g pnpm
+Setup Dependencies
+Install the necessary dependencies for the project:
+
+bash
+Copy
+pnpm i
+Automatic Setup (recommended)
+Makerkit provides a script to automatically clone the repository and setup the project.
+
+If you have a repository created in version 2.9.0 or later, you can use the following command to setup the project (otherwise, you can manually setup the project by following the steps below):
+
+bash
+Copy
+pnpm turbo gen setup
+If anything goes wrong or you have a repository created below version 2.9.0, you can manually setup the project by following the steps below.
+
+Manual Setup (if automatic setup fails)
+Configuring Git Remotes
+After cloning the repository, remove the original origin remote:
+
+bash
+Copy
+git remote rm origin
+Add the upstream remote pointing to the original repository to pull updates:
+
+bash
+Copy
+git remote add upstream git@github.com:makerkit/next-supabase-saas-kit-turbo
+Once you have your own repository set up, add your repository as the origin:
+
+bash
+Copy
+git remote add origin <your-repository-url>
+Verify your Git username
+To verify you have access, you need to check that your local Git username is the same as set up in the Makerkit's Github organization.
+
+Please run the following command to check your Git username:
+
+bash
+Copy
+git config user.username
+If the output is not your Github username, or does not match the username registered in Makerkit's Github organization, you can set it using the following command:
+
+bash
+Copy
+git config --global user.username <your-github-username>
+NB: You must replace <your-github-username> with your actual Github username in between quotes.
+
+For example, if your Github username is johndoe, you can set it using the following command:
+
+bash
+Copy
+git config --global user.username "johndoe"
+This is important to ensure you can run the repository.
+
+Keeping Your Repository Up to Date
+To pull updates from the upstream repository, run the following command daily (preferably with your morning coffee ☕):
+
+bash
+Copy
+git pull upstream main
+This ensures your repository stays up to date with the latest changes.
+
+2. Post-merge Hooks
+It's very useful to run the following command after pulling updates from the upstream repository:
+
+bash
+Copy
+pnpm i
+This ensures that any new dependencies are installed and the project is up to date. We can run this command automatically after pulling updates by setting up a post-merge hook.
+
+Create a new file named post-merge in the .git/hooks directory:
+
+bash
+Copy
+touch .git/hooks/post-merge
+Add the following content to the post-merge file:
+
+bash
+Copy
+#!/bin/bash
+pnpm i
+Make the post-merge file executable:
+
+bash
+Copy
+chmod +x .git/hooks/post-merge
+Now, every time you pull updates from the upstream repository, the pnpm i command will run automatically to ensure your project is up to date. This ensures you're always working with the latest changes and dependencies and avoid errors that may arise from outdated dependencies.

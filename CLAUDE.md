@@ -2,6 +2,112 @@
 
 This file provides guidance to Claude Code when working with code in this repository.
 
+## 🎯 DMARCEngine Project Overview
+
+**Project:** DMARCEngine - Automated DMARC Management SaaS Platform  
+**Mission:** Turn DIY email authentication into professional-grade protection  
+**Target Market:** 42.7M companies with DIY DMARC implementations  
+**Goal:** $15-20M exit within 24 months through automated customer acquisition  
+
+**Key Resources:**
+- **DMARCEngine Context:** See `DMARCENGINE_CONTEXT.md` for complete project documentation
+- **Project Documentation:** See `docs/` for organized documentation hub
+- **MakerKit Documentation:** See `makerkit-docs/` for framework-specific guidance
+- **Development Guides:** See `docs/development/` for technical implementation
+- **Business Strategy:** See `docs/business/` for product requirements and planning
+
+**Business Model:** $49-149/month recurring subscriptions with $11.78 CAC and 224:1 LTV/CAC ratio through automated acquisition targeting the underserved SMB market.
+
+## 🔄 Session Continuity Protocol
+
+**CRITICAL:** Every Claude Code session MUST follow this handoff protocol to ensure zero context loss.
+
+### Session Start Protocol (REQUIRED)
+1. **Read Context Files** (in this order):
+   - `handoffs/active-session.md` - Current project status
+   - `DMARCENGINE_CONTEXT.md` - Complete business and technical context
+   - `project-management/current-sprint.md` - Current sprint priorities
+   - Last handoff in `handoffs/session-history/` - Previous session details
+
+2. **Validate Environment**:
+   - Working directory: `/Users/rhz/Desktop/dmarc-engine`
+   - Check git status and current branch
+   - Verify todo list status and priorities
+   - Review any active blockers or issues
+
+3. **Update Session Tracker**:
+   - Update `handoffs/active-session.md` with current session info
+   - Note session objectives and planned work
+   - Update todo list status as appropriate
+
+### Session End Protocol (REQUIRED)
+1. **Create Session Handoff**:
+   - Copy `handoffs/session-templates/session-end-template.md`
+   - Save as `handoffs/session-history/YYYY-MM-DD-session-handoff.md`
+   - Complete ALL sections with detailed information
+
+2. **Update Project Tracking**:
+   - Update `handoffs/active-session.md` with final status
+   - Update `project-management/current-sprint.md` with progress
+   - Add completed features to `project-management/completed-features.md`
+   - Update todo list with final status
+
+3. **Environment Documentation**:
+   - Document any configuration changes
+   - Note any uncommitted code or work in progress
+   - List next session priorities clearly
+
+### Session Management Rules
+- **Never End Session** without creating proper handoff documentation
+- **Always Update** active-session.md with current status
+- **Document Everything** - decisions, blockers, discoveries, changes
+- **Maintain Context** - ensure next Claude can start immediately without questions
+
+## 🚀 DMARCEngine Development Priorities
+
+### Current Implementation Phase: Foundation (Weeks 1-2)
+```
+✅ MakerKit installation and configuration
+✅ Git remotes and dependency management  
+🔄 Environment configuration (Supabase, Stripe, AWS SES)
+⏳ Basic DMARC checker implementation
+⏳ Customer authentication and billing setup
+⏳ Email infrastructure configuration
+```
+
+### Core Modules to Implement
+1. **DMARC Discovery Engine** - DNS scanning for DIY DMARC users (10,000 domains/day)
+2. **DMARC Management Dashboard** - Real-time monitoring and optimization
+3. **Automated Email Outreach** - Customer acquisition without human intervention
+
+### DMARCEngine-Specific Database Models
+```typescript
+// Add these to MakerKit schema
+interface DomainConfig {
+  id: string;
+  customerId: string; // Links to MakerKit accounts
+  domain: string;
+  dmarcRecord: DMARCRecord;
+  complianceScore: number;
+  monitoringEnabled: boolean;
+  alertSettings: AlertSettings;
+}
+
+interface DMARCAnalysis {
+  id: string;
+  domainId: string;
+  authenticationFailures: AuthFailure[];
+  threatIntelligence: ThreatData[];
+  policyRecommendations: Recommendation[];
+}
+```
+
+### Development Guidelines
+- **Automation First:** Every feature should run without human oversight
+- **Follow MakerKit Patterns:** Use existing auth, billing, and multi-tenancy
+- **Performance Focus:** Target <2s page loads, <500ms dashboard refresh
+- **Security:** Multi-provider email infrastructure, perfect DMARC setup
+
 ### Core Technologies
 
 - **Next.js 15** with App Router and Turbopack
