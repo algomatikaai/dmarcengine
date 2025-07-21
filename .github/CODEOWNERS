@@ -1,0 +1,27 @@
+# DMARCEngine Code Owners
+# These owners will be requested for review when someone opens a pull request
+
+# Global owners
+* @algomatikaai/dmarcengine-team
+
+# Frontend code
+/apps/web/ @algomatikaai/frontend
+
+# Backend/API code
+/apps/api/ @algomatikaai/backend
+/packages/supabase/ @algomatikaai/backend
+
+# Infrastructure and DevOps
+/.github/ @algomatikaai/devops
+/docker/ @algomatikaai/devops
+*.dockerfile @algomatikaai/devops
+*.yml @algomatikaai/devops
+
+# Documentation
+/docs/ @algomatikaai/documentation
+*.md @algomatikaai/documentation
+
+# Security-sensitive files
+.env* @algomatikaai/security
+**/auth/ @algomatikaai/security
+**/security/ @algomatikaai/security
