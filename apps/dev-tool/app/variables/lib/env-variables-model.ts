@@ -551,7 +551,7 @@ export const envVariables: EnvVariableModel[] = [
   {
     name: 'NEXT_PUBLIC_STRIPE_PUBLISHABLE_KEY',
     description: 'Your Stripe publishable key.',
-    hint: `Ex. pk_test_123456789012345678901234`,
+    hint: `Ex. pk_test_[your_stripe_publishable_key]`,
     category: 'Billing',
     type: 'string',
     contextualValidation: {
@@ -596,7 +596,7 @@ export const envVariables: EnvVariableModel[] = [
     name: 'STRIPE_SECRET_KEY',
     description: 'Your Stripe secret key.',
     category: 'Billing',
-    hint: `Ex. sk_test_123456789012345678901234`,
+    hint: `Ex. sk_test_[your_stripe_secret_key]`,
     secret: true,
     type: 'string',
     contextualValidation: {
@@ -635,7 +635,7 @@ export const envVariables: EnvVariableModel[] = [
     name: 'STRIPE_WEBHOOK_SECRET',
     description: 'Your Stripe webhook secret.',
     category: 'Billing',
-    hint: `Ex. whsec_123456789012345678901234`,
+    hint: `Ex. whsec_[your_webhook_secret]`,
     secret: true,
     type: 'string',
     contextualValidation: {
