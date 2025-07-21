@@ -34,7 +34,8 @@
     "supabase:web:test": "pnpm --filter web supabase:test",
     "stripe:listen": "pnpm --filter '@kit/stripe' start",
     "env:generate": "turbo gen env",
-    "env:validate": "turbo gen validate-env"
+    "env:validate": "turbo gen validate-env",
+    "env:check": "node scripts/validate-env.js"
   },
   "prettier": "@kit/prettier-config",
   "packageManager": "pnpm@9.12.0",
