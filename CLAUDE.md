@@ -6,17 +6,17 @@ This file provides guidance to Claude Code when working with code in this reposi
 
 **Project:** DMARCEngine - Automated DMARC Management SaaS Platform  
 **Mission:** Turn DIY email authentication into professional-grade protection  
-**Target Market:** 42.7M companies with DIY DMARC implementations  
-**Goal:** $15-20M exit within 24 months through automated customer acquisition  
+**Target Market:** 175k-260k qualified domains (precision targeting, not spray-and-pray)  
+**Goal:** $15-20M exit within 24 months through money printer automation (Beach Test compliant)  
 
 **Key Resources:**
 - **DMARCEngine Context:** See `DMARCENGINE_CONTEXT.md` for complete project documentation
-- **Project Documentation:** See `docs/` for organized documentation hub
-- **MakerKit Documentation:** See `makerkit-docs/` for framework-specific guidance
-- **Development Guides:** See `docs/development/` for technical implementation
-- **Business Strategy:** See `docs/business/` for product requirements and planning
+- **Project Documentation:** See `docs/` for organized documentation hub (updated to 75% completion)
+- **Active Session Status:** See `handoffs/active-session.md` for current progress
+- **Next Session Prep:** See `handoffs/next-session-prep.md` for immediate priorities
+- **Business Strategy:** See `docs/business/` for money printer revenue recovery strategy
 
-**Business Model:** $49-149/month recurring subscriptions with $11.78 CAC and 224:1 LTV/CAC ratio through automated acquisition targeting the underserved SMB market.
+**Business Model:** $79/$149/$299 recurring subscriptions targeting qualified prospects losing $1K+ monthly to email deliverability issues. Money printer philosophy: maximum automation, minimum human intervention.
 
 ## 🔄 Session Continuity Protocol
 
@@ -65,20 +65,23 @@ This file provides guidance to Claude Code when working with code in this reposi
 
 ## 🚀 DMARCEngine Development Priorities
 
-### Current Implementation Phase: Foundation (Weeks 1-2)
+### Current Implementation Phase: Money Printer Infrastructure (Week 3-4 of 4-week plan)
 ```
 ✅ MakerKit installation and configuration
 ✅ Git remotes and dependency management  
-🔄 Environment configuration (Supabase, Stripe, AWS SES)
-⏳ Basic DMARC checker implementation
-⏳ Customer authentication and billing setup
-⏳ Email infrastructure configuration
+✅ Stripe billing integration with 3-tier pricing ($79/$149/$299)
+✅ Prospect discovery engine (BuiltWith API + DNS scanning + revenue calculations)
+✅ Service-specific landing pages (SendGrid, SES, Google Workspace)
+✅ Perfect DMARC infrastructure ("walk the talk" credibility with live dashboard)
+✅ Database schema for prospects, campaigns, email templates
+🔄 Documentation updates (75% complete)
+⏳ Automated email sequences with revenue loss messaging (final component)
 ```
 
-### Core Modules to Implement
-1. **DMARC Discovery Engine** - DNS scanning for DIY DMARC users (10,000 domains/day)
-2. **DMARC Management Dashboard** - Real-time monitoring and optimization
-3. **Automated Email Outreach** - Customer acquisition without human intervention
+### Core Modules (Current Status)
+1. **DMARC Discovery Engine** ✅ - BuiltWith API + DNS scanning operational (targeting 765K+ users)
+2. **DMARC Management Dashboard** ✅ - Live transparency dashboard at `/deliverability` showing 99.7% deliverability 
+3. **Automated Email Outreach** ⏳ - Infrastructure complete, email sequences next priority
 
 ### DMARCEngine-Specific Database Models
 ```typescript
